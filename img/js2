@@ -1,0 +1,53 @@
+{
+    "count": 1,
+    "data": [
+        {
+            "app_temp": 19.5,
+            "aqi": 46,
+            "city_name": "Hassan",
+            "clouds": 88,
+            "country_code": "IN",
+            "datetime": "2023-11-09:02",
+            "dewpt": 19.1,
+            "dhi": 91.68,
+            "dni": 792.84,
+            "elev_angle": 28.31,
+            "ghi": 461.45,
+            "gust": 1.7011719,
+            "h_angle": -60,
+            "lat": 13.00715,
+            "lon": 76.0962,
+            "ob_time": "2023-11-09 02:48",
+            "pod": "d",
+            "precip": 0,
+            "pres": 908.5,
+            "rh": 95,
+            "slp": 1013.9551,
+            "snow": 0,
+            "solar_rad": 192.5,
+            "sources": [
+                "analysis",
+                "radar",
+                "satellite"
+            ],
+            "state_code": "19",
+            "station": "VOML",
+            "sunrise": "00:56",
+            "sunset": "12:32",
+            "temp": 20,
+            "timezone": "Asia/Kolkata",
+            "ts": 1699498090,
+            "uv": 1.3168445,
+            "vis": 15,
+            "weather": {
+                "description": "Fog",
+                "code": 741,
+                "icon": "a05d"
+            },
+            "wind_cdir": "NNE",
+            "wind_cdir_full": "north-northeast",
+            "wind_dir": 13,
+            "wind_spd": 1.2281832
+        }
+    ]
+}

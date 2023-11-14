@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Web App</title>
+    <!-- Include the Google Sign-In API -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- Include your client ID -->
+    <meta name="google-signin-client_id" content="260510661190-8tcc90c5fb16t9i4q1bn6lm46skeoj1l.apps.googleusercontent.com">
+</head>
+<body>
+    <!-- Add a sign-in button -->
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+    <script>
+        function onSignIn(googleUser) {
+            // Handle the sign-in process here
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId());
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+        }
+    </script>
+</body>
+</html>

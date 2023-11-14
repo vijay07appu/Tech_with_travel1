@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather Website</title>
+        <link rel="stylesheet" href="style3.css">
+    </head>
+    <body>
+        <div class="card">
+            <div class="search">
+                <input type="text" placeholder="enter city name"
+                spellcheck="false" id="location">
+                <button onclick="getWeather()">get</button>
+            </div>
+            <div class="weather">
+                <img src="./rain.png" class="weather-icon">
+                <h1 class="temp" id="temp"></h1>
+                <h2 class="city" id="weather"></h2>
+            
+            <div class="details">
+                <div class="col">
+                    <img src="./humidity.png">
+                    <div>
+                        <p class="cityName" id="lat"></p>
+                        <p>Latitude</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="./wind.png">
+                    <div>
+                        <p class="wind" id="wind"></p>
+                        <p>wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <!-- <script>
+          /*  const apikey="7XNXA2PXLMQADW3YWNGLXPFNJ"
+            const apiurl="https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/chikkamagaluru?unitGroup=metric"
+
+            async function checkWeather(){
+                const response=await fetch(apiurl +'&appid=${apikey}');
+                var data=await response.json();
+                console.log(data);
+            }
+       checkWeather();*/
+       fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/chikkamagaluru?unitGroup=metric&key=7XNXA2PXLMQADW3YWNGLXPFNJ&contentType=json", {
+  "method": "GET",
+  "headers": {
+  }
+  })
+   .then(response => {
+    console.log(response);
+    })
+     .catch(err => {
+    console.error(err);
+    });
+    
+</script> -->
+<script>
+    const  weather_icon=document.querySelector(".weather-icon")
+    function getWeather() {
+     var location = document.getElementById("location").value;
+      fetch(`https://api.weatherbit.io/v2.0/current?city=${location}&key=60143c12dc7f45459994627f890554fa&units=Metric`)
+       .then(response => response.json())
+        .then(data => {
+          var temp =data.data[0].app_temp;
+          var weather = data.data[0].weather.description;
+           var windspeed=data.data[0].wind_spd;
+           var lat=data.data[0].lat;
+          document.getElementById("temp").innerHTML = "Temperature: " + temp + "°C";
+          document.getElementById("weather").innerHTML = "Weather: " + weather;
+          document.getElementById("wind").innerHTML= + windspeed;
+          document.getElementById("lat").innerHTML= + lat;
+       
+        if(data.data[0].weather.description=="Scattered clouds"){
+            weather_icon.src="./clouds.png";
+          }
+        else  if(data.data[0].weather.description=="Clear sky"){
+            weather_icon.src="./clear.png";
+          }
+          else if(data.data[0].weather.description=="Haze"){
+            weather_icon.src="./drizzle.png";
+          }
+          else if(data.data[0].weather.description=="Fog"){
+            weather_icon.src="./mist.png";
+          }
+        else if(data.data[0].weather.description=="Rain"){
+            weather_icon.src="./rain.png";
+          }
+          document.querySelector(".weather").style.display="block";
+    });
+    }
+ </script>
+    </body>
+</html>

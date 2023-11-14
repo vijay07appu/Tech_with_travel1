@@ -1,0 +1,2 @@
+60143c12dc7f45459994627f890554fa
+https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=a62e303b09994982cf29170e8e3f66e9

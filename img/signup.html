@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>SignUp Now</title>
+        <link rel="stylesheet" href="style2.css">
+
+    
+    </head>
+
+    <body>
+
+        <div class="sign-up-form">
+            <img src="./photo5.png">
+            <h1>Sign Up Now</h1>
+            <form>
+                <input type="email" class="input-box" placeholder="Enter Your Email">
+                <input type="password" class="input-box" placeholder="Enter Your password">
+                <p><span><input type="checkbox"></span>I agree to the trems of services</p>
+                 <button type="button" class="SignUp_btn" id="navigateButton">Register</button>           
+                 <hr>
+                 <p class="Or">OR</p>
+                 <button type="button" class="SignUp_bt">Login with google</button>  
+                 <p>Do you have an account ?<a href="#">SignIn</a></p>
+
+                 
+
+                 <script>
+                     document.getElementById('navigateButton').addEventListener('click', function() {
+                         // Redirect to another page when the button is clicked
+                         window.location.href = 'loc.html';
+                     });
+                 </script>
+
+
+
+
+
+            </form>
+        </div>
+    </body>
+</html>
