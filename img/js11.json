@@ -1,0 +1,44 @@
+{
+    "coord": {
+        "lon": 76.0833,
+        "lat": 12.95
+    },
+    "weather": [
+        {
+            "id": 804,
+            "main": "Clouds",
+            "description": "overcast clouds",
+            "icon": "04n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 294.66,
+        "feels_like": 294.96,
+        "temp_min": 294.66,
+        "temp_max": 294.66,
+        "pressure": 1014,
+        "humidity": 80,
+        "sea_level": 1014,
+        "grnd_level": 909
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 2.43,
+        "deg": 75,
+        "gust": 4.4
+    },
+    "clouds": {
+        "all": 88
+    },
+    "dt": 1702312435,
+    "sys": {
+        "country": "IN",
+        "sunrise": 1702256844,
+        "sunset": 1702297807
+    },
+    "timezone": 19800,
+    "id": 1270239,
+    "name": "Hassan",
+    "cod": 200
+}

@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <title>places information</title>
+    <link rel="stylesheet" href="style7.css" />
+  </head>
+  <body>
+    <h1>Gorur Dam</h1>
+    <div class="slideshow-container">
+      <!-- Slides -->
+      <div class="mySlides">
+        <img src="../img/g1.jpg" alt="Slide 1" />
+      </div>
+
+      <div class="mySlides">
+        <img src="../img/g2.jpg" alt="Slide 2" />
+      </div>
+
+      <div class="mySlides">
+        <img src="../img/g3.jpeg" alt="Slide 3" />
+      </div>
+
+      <!-- Navigation dots -->
+      <div style="text-align: center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+    <br /><br />
+    <div id="h1">
+           Gorur dam gardens and the Gorur temple attracts many visitors. A dam
+      across the Hemavati was completed in 1979, above Gorur in Hassan district,
+      and downstream from the Yagachi confluence. The dam is 58 meters in
+      height, and 4692 meters long, impounding a reservoir of 8502 hectares [2]
+      The Hemavati River starts in the Western Ghats at an elevation of about
+      1,219 metres[3] near Ballala rayana durga in the Chikmagalur District of
+      the state of Karnataka, in southern India. It flows through Hassan
+      District where it is joined by its chief tributary, the Yagachi River, and
+      then into Mandya district before joining the Kaveri near
+      Krishnarajasagara. It is approximately 245 km long and has a drainage area
+      of about 5,410 km². Gorur is located in Hassan Taluk of Hassan district.
+      The Hassan-Piriyapatna Highway passes through it.
+    </div>
+    <br/><br/>
+    <input type="text" id="location" placeholder="Enter Location" />
+    <br />
+    <button onclick="getWeather()">Get Weather</button>
+    <h2 id="temp"></h2>
+    <p id="weather"></p>
+
+    <p id="display"></p>
+
+    <script>
+      let slideIndex = 0;
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+
+        slideIndex++;
+
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+
+        setTimeout(showSlides, 3000); // Change slide every 2 seconds
+      }
+
+      // Initial call to start the slideshow
+      showSlides();
+
+      function getWeather() {
+        var location = document.getElementById("location").value;
+        fetch(
+          `https://api.openweathermap.org/data/2.5/weather?lat=12.85298&lon=76.48070&appid=a62e303b09994982cf29170e8e3f66e9`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            var temp = data.main.temp - 273.15;
+            var weather = data.weather[0].description;
+            document.getElementById("temp").innerHTML =
+              "Temperature: " + temp + "°C";
+            document.getElementById("weather").innerHTML =
+              "Weather: " + weather;
+          });
+      }
+    </script>
+  </body>
+</html>

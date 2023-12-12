@@ -1,1 +1,14 @@
 260510661190-8tcc90c5fb16t9i4q1bn6lm46skeoj1l.apps.googleusercontent.com
+   <div class="slider-frame">
+        <div class="slide-images">
+            <div class="img-container">
+                <img src="../img/c1.jpg">
+            </div>
+            <div class="img-container">
+                <img src="../img/c2.jpg">
+            </div>
+            <div class="img-container">
+                <img src="../img/c3.jpg">
+            </div>
+        </div>
+     </div>

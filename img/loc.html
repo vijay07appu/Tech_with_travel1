@@ -32,43 +32,36 @@
                     </div>
                 </div>
             </div>
-        </div>
+            <br><br>
+            <div class="place">
+                <!-- <input type="text" placeholder="enter your place"
+               id="placename" spellcheck="false"> -->
+               <!--<label for="placename">Choose a place to visit:</label> -->
+               
+                 <select name="cars" id="placename">
+                <option value="Shetty">Shettihalli Church</option>
+                <option value="shravana">Shravana Belagula</option>
+                <option value="gorur">Gorur Dam</option>
+</select>
+                <button type="button" id="button1">find</button>
+            </div>
         </div>
         
-        <!-- <script>
-          /*  const apikey="7XNXA2PXLMQADW3YWNGLXPFNJ"
-            const apiurl="https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/chikkamagaluru?unitGroup=metric"
-
-            async function checkWeather(){
-                const response=await fetch(apiurl +'&appid=${apikey}');
-                var data=await response.json();
-                console.log(data);
-            }
-       checkWeather();*/
-       fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/chikkamagaluru?unitGroup=metric&key=7XNXA2PXLMQADW3YWNGLXPFNJ&contentType=json", {
-  "method": "GET",
-  "headers": {
-  }
-  })
-   .then(response => {
-    console.log(response);
-    })
-     .catch(err => {
-    console.error(err);
-    });
-    
-</script> -->
+    </div>
+        
+       
 <script>
     const  weather_icon=document.querySelector(".weather-icon")
     function getWeather() {
      var location = document.getElementById("location").value;
-      fetch(`https://api.weatherbit.io/v2.0/current?city=${location}&key=60143c12dc7f45459994627f890554fa&units=Metric`)
+      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=12.95000000&lon=76.08333000&appid=a62e303b09994982cf29170e8e3f66e9`)
        .then(response => response.json())
         .then(data => {
-          var temp =data.data[0].app_temp;
-          var weather = data.data[0].weather.description;
-           var windspeed=data.data[0].wind_spd;
-           var lat=data.data[0].lat;
+           var temp =Math.round(data.main.temp - 273.15);
+           var weather =  data.weather[0].description;
+            var windspeed=data.wind.speed;
+            var lat=data.coord.lat;
+          //  document.write(lat);
           document.getElementById("temp").innerHTML = "Temperature: " + temp + "°C";
           document.getElementById("weather").innerHTML = "Weather: " + weather;
           document.getElementById("wind").innerHTML= + windspeed;
@@ -89,9 +82,30 @@
         else if(data.data[0].weather.description=="Rain"){
             weather_icon.src="./rain.png";
           }
-          document.querySelector(".weather").style.display="block";
+        //document.querySelector(".weather").style.display="block";
+        
     });
+    document.querySelector(".weather").style.display="block";
     }
- </script>
-    </body>
+   
+    document.getElementById('button1').addEventListener('click', function() {
+                         // Redirect to another page when the button is clicked
+    //var stored=document.getElementById("placename").value; 
+        var input=document.getElementById('placename').value; 
+                         if(input=='Shetty'){
+                           
+                           window.location.href = 'shettyhalli_church.html';
+                         }
+                         else if(input=='shravana'){
+            
+                           window.location.href = 'shravana.html';
+                         }                          
+                         else if(input=='gorur'){
+                         
+                          window.location.href = 'goruor.html';
+                        }
+                     });
+                                 
+        </script>
+</body>
 </html>

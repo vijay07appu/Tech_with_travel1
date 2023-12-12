@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <title>places information</title>
+    <link rel="stylesheet" href="style8.css" />
+  </head>
+  <body>
+    <h1>Shravanabelagola</h1>
+    <div class="slideshow-container">
+      <!-- Slides -->
+      <div class="mySlides">
+        <img src="../img/s1.jpg" alt="Slide 1" />
+      </div>
+
+      <div class="mySlides">
+        <img src="../img/s2.jpg" alt="Slide 2" />
+      </div>
+
+      <div class="mySlides">
+        <img src="../img/s1.jpg" alt="Slide 3" />
+      </div>
+
+      <!-- Navigation dots -->
+      <div style="text-align: center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+    <br /><br />
+    <div id="h1">
+      Shravanabelagola (Kannada: ಶ್ರವಣ ಬೆಳಗೊಳ, romanized: śravaṇa beḷagoḷa,
+      pronunciation: [ ɕɾɐ.ʋɐˈɳɐ bɛ.ɭɐ.go.ɭɐ ] ) is a town located near
+      Channarayapatna of Hassan district in the Indian state of Karnataka and is
+      144 km (89 mi) from Bengaluru. The Gommateshwara Bahubali statue at
+      Shravanabelagola is one of the most important tirthas (pilgrimage
+      destinations) in Jainism, one that reached a peak in architectural and
+      sculptural activity under the patronage of Western Ganga dynasty of
+      Talakad. Chandragupta Maurya is said to have died on the hill of
+      Chandragiri, which is located in Shravanabelagola, in 298 BCE after he
+      became a Jain monk and assumed an ascetic life style.[2] Gommateshwara
+      statue, Akkana Basadi, Chandragupta basadi, Chamundaraya Basadi,
+      Parshvanath Basadi and inscriptions of Shravanabelagola group of monuments
+      are listed as Adarsh Smarak Monument by Archaeological Survey of India.
+      Shravanabelagola is located at 11 km (6.8 mi) to the south-east of
+      Channarayapatna in the Channarayapatna taluk of Hassan district of
+      Karnataka. It is at a distance of 51 km (32 mi) south-east of Hassan,
+      Karnataka, the district centre. It is situated at a distance of 12 km (7.5
+      mi) to the south from the Bengaluru-Mangaluru road (NH-75), 18 km (11 mi)
+      from Hirisave, 78 km (48 mi) from Halebidu, 89 km (55 mi) from Belur, 83
+      km (52 mi) from Mysuru, 144 km (89 mi) from Bengaluru, the capital of
+      Karnataka and 222 km (138 mi) from Mangaluru. Sacred places are spread
+      over two hills, Chandragiri and Vindyagiri, and also among the villages at
+      the foothills.
+    </div>
+    <br /><br />
+
+    <button onclick="getWeather()">Get Weather</button>
+    <h2 id="temp"></h2>
+    <p id="weather"></p>
+
+    <p id="display"></p>
+
+    <script>
+      let slideIndex = 0;
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+
+        slideIndex++;
+
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+
+        setTimeout(showSlides, 3000); // Change slide every 2 seconds
+      }
+
+      // Initial call to start the slideshow
+      showSlides();
+
+      function getWeather() {
+        //var location = document.getElementById("location").value;
+        fetch(
+          `https://api.openweathermap.org/data/2.5/weather?lat=12.85298&lon=76.48070&appid=a62e303b09994982cf29170e8e3f66e9`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            var temp = data.main.temp - 273.15;
+            var weather = data.weather[0].description;
+            document.getElementById("temp").innerHTML =
+              "Temperature: " + temp + "°C";
+            document.getElementById("weather").innerHTML =
+              "Weather: " + weather;
+          });
+      }
+    </script>
+  </body>
+</html>
