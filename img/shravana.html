@@ -28,16 +28,15 @@
     </div>
     <br /><br />
     <div id="h1">
-      Shravanabelagola (Kannada: ಶ್ರವಣ ಬೆಳಗೊಳ, romanized: śravaṇa beḷagoḷa,
-      pronunciation: [ ɕɾɐ.ʋɐˈɳɐ bɛ.ɭɐ.go.ɭɐ ] ) is a town located near
-      Channarayapatna of Hassan district in the Indian state of Karnataka and is
+      Shravanabelagola (Kannada: ಶ್ರವಣ ಬೆಳಗೊಳ, romanized: śravaṇa beḷagoḷa)
+      pronunciation: is a town located near Channarayapatna of Hassan district in the Indian state of Karnataka and is
       144 km (89 mi) from Bengaluru. The Gommateshwara Bahubali statue at
       Shravanabelagola is one of the most important tirthas (pilgrimage
       destinations) in Jainism, one that reached a peak in architectural and
       sculptural activity under the patronage of Western Ganga dynasty of
       Talakad. Chandragupta Maurya is said to have died on the hill of
       Chandragiri, which is located in Shravanabelagola, in 298 BCE after he
-      became a Jain monk and assumed an ascetic life style.[2] Gommateshwara
+      became a Jain monk and assumed an ascetic life style. Gommateshwara
       statue, Akkana Basadi, Chandragupta basadi, Chamundaraya Basadi,
       Parshvanath Basadi and inscriptions of Shravanabelagola group of monuments
       are listed as Adarsh Smarak Monument by Archaeological Survey of India.
@@ -54,7 +53,8 @@
     </div>
     <br /><br />
 
-    <button onclick="getWeather()">Get Weather</button>
+    <button class="weather" onclick="getWeather()">Get Weather</button>
+    <button class="map">Get Directions</button>
     <h2 id="temp"></h2>
     <p id="weather"></p>
 
@@ -98,7 +98,7 @@
         )
           .then((response) => response.json())
           .then((data) => {
-            var temp = data.main.temp - 273.15;
+            var temp = Math.round(data.main.temp - 273.15);
             var weather = data.weather[0].description;
             document.getElementById("temp").innerHTML =
               "Temperature: " + temp + "°C";
@@ -106,6 +106,13 @@
               "Weather: " + weather;
           });
       }
+
+      let mymap=document.querySelector(".map");
+      mymap.addEventListener('click',()=>{
+
+
+        window.location.href = 'shravana_map.html';
+      })
     </script>
   </body>
 </html>

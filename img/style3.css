@@ -8,12 +8,18 @@
 body{
     background: #222;
 }
+
+.bg-image{
+    background-image: url(weather-bg.jpg);
+    background-size: cover;
+    
+}
 .card{
     width: 90%;
     max-width: 470px;
-    background: linear-gradient(135deg,#00feba,#5b548a);
-    color:#fff;
-    margin:100px auto 0;
+    background: linear-gradient(135deg,#e0e7dd,#d8d6de);
+    color:#130101;
+    margin:213px 225px 0;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
@@ -79,12 +85,20 @@ body{
     width: 40px;
     margin-right: 10px;
 }
-.lat,.wind{
+.humidity, .wind{
     font-size:28px;
     margin-top: -6px;
 }
 .weather{
     display: none;
+}
+
+.error{
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    display: none;
+
 }
 .place{
     width:100%;

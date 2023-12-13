@@ -31,9 +31,9 @@
            Gorur dam gardens and the Gorur temple attracts many visitors. A dam
       across the Hemavati was completed in 1979, above Gorur in Hassan district,
       and downstream from the Yagachi confluence. The dam is 58 meters in
-      height, and 4692 meters long, impounding a reservoir of 8502 hectares [2]
+      height, and 4692 meters long, impounding a reservoir of 8502 hectares 
       The Hemavati River starts in the Western Ghats at an elevation of about
-      1,219 metres[3] near Ballala rayana durga in the Chikmagalur District of
+      1,219 metres near Ballala rayana durga in the Chikmagalur District of
       the state of Karnataka, in southern India. It flows through Hassan
       District where it is joined by its chief tributary, the Yagachi River, and
       then into Mandya district before joining the Kaveri near
@@ -42,9 +42,10 @@
       The Hassan-Piriyapatna Highway passes through it.
     </div>
     <br/><br/>
-    <input type="text" id="location" placeholder="Enter Location" />
+    
     <br />
-    <button onclick="getWeather()">Get Weather</button>
+    <button  onclick="getWeather()">Get Weather</button>
+    <button class="map">Get Directions</button>
     <h2 id="temp"></h2>
     <p id="weather"></p>
 
@@ -82,20 +83,28 @@
       showSlides();
 
       function getWeather() {
-        var location = document.getElementById("location").value;
+        console.log("button is working");
+       // var location = document.getElementById("location").value;
         fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=12.85298&lon=76.48070&appid=a62e303b09994982cf29170e8e3f66e9`
+          `https://api.openweathermap.org/data/2.5/weather?lat=12.823691002199435&lon=76.06332366659564&appid=a62e303b09994982cf29170e8e3f66e9`
         )
           .then((response) => response.json())
           .then((data) => {
-            var temp = data.main.temp - 273.15;
+            var tempt = Math.round(data.main.temp - 273.15);
             var weather = data.weather[0].description;
             document.getElementById("temp").innerHTML =
-              "Temperature: " + temp + "°C";
+              "Temperature: " + tempt + "°C";
             document.getElementById("weather").innerHTML =
               "Weather: " + weather;
           });
       }
+
+      let mymap=document.querySelector(".map");
+      mymap.addEventListener('click',()=>{
+
+
+        window.location.href = 'dam_map.html';
+      })
     </script>
   </body>
 </html>

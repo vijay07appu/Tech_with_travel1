@@ -33,6 +33,7 @@ button{
 
 .slideshow-container img {
     width: 100%;
+    border-radius: 1pc;
 }
 
 /* Optional: Add some styling to the navigation dots */
@@ -48,4 +49,15 @@ button{
 
 .active {
     background-color: #717171;
+}
+
+button{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+
+.map{
+    position: absolute;
+    right: 18px;
 }

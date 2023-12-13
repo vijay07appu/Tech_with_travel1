@@ -47,6 +47,7 @@
     </div>
     <br><br>
     <button onclick="getWeather()">Get Weather</button>
+    <button class="map">Get Directions</button>
     <h2 id="temp"></h2>
     <p id="weather"></p>
 
@@ -100,6 +101,13 @@ showSlides();
               "Weather: " + weather;
           });
       }
+
+      let mymap=document.querySelector(".map");
+      mymap.addEventListener('click',()=>{
+
+
+        window.location.href = 'shetty_map.html';
+      })
      
     </script>
   </body>

@@ -1,0 +1,47 @@
+{
+    "coord": {
+      "lon": 76.0633,
+      "lat": 12.8237
+    },
+    "weather": [
+      {
+        "id": 500,
+        "main": "Rain",
+        "description": "light rain",
+        "icon": "10d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 295.12,
+      "feels_like": 295.23,
+      "temp_min": 295.12,
+      "temp_max": 295.12,
+      "pressure": 1016,
+      "humidity": 71,
+      "sea_level": 1016,
+      "grnd_level": 919
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 3.9,
+      "deg": 85,
+      "gust": 4.93
+    },
+    "rain": {
+      "1h": 0.1
+    },
+    "clouds": {
+      "all": 23
+    },
+    "dt": 1702438429,
+    "sys": {
+      "country": "IN",
+      "sunrise": 1702429699,
+      "sunset": 1702470670
+    },
+    "timezone": 19800,
+    "id": 1270898,
+    "name": "Gorūr",
+    "cod": 200
+  }
